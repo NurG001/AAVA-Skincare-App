@@ -1,0 +1,77 @@
+name: aava
+description: "Acne Analysis & Visualization App"
+publish_to: 'none'
+version: 2.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Core AI/UX Packages
+  tflite_flutter: ^0.11.0
+  image_picker: ^1.0.7
+  image: ^4.1.7
+  google_fonts: ^6.1.0
+  percent_indicator: ^4.2.3
+  animate_do: ^3.3.4
+  path_provider: ^2.1.2
+  geolocator: ^13.0.2         # KEPT for Skin Weather Card
+  google_mlkit_text_recognition: ^0.14.0
+  camera: ^0.11.0
+  permission_handler: ^11.3.1 # KEPT for Camera/Location permissions
+  http: ^1.2.0
+  url_launcher: ^6.2.5
+  model_viewer_plus: ^1.7.0
+  flutter_inappwebview: ^6.0.0
+  flutter_native_splash: ^2.3.10
+  flutter_launcher_icons: ^0.13.1
+  lottie: ^3.1.0
+  shimmer: ^3.0.0
+  video_player: ^2.8.1
+  shared_preferences: ^2.2.2
+  google_mlkit_face_detection: ^0.12.0 # <--- ADD THIS
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/model.tflite
+    - assets/labels.txt
+    - assets/banner.jpg
+    - assets/startup.jpg
+    - assets/face.glb
+    - assets/face_map.html
+    - assets/logo.png
+    - assets/logo2.png
+    - assets/AAVA.png
+    - assets/camera.png
+    - assets/gallery.png
+    - assets/anim/
+    - assets/weather/
+    - assets/startup.mp4
+    - assets/skintip.jpg
+    - assets/ingredients.jpg
+    - assets/camera2.jpg
+
+flutter_native_splash:
+  color: "##FFFFFF"
+  image: assets/AAVA.png
+  android_12:
+    color: "##FFFFFF"
+    image: assets/AAVA.png
+  fullscreen: true
+
+flutter_launcher_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path: "assets/logo.png"
+  min_sdk_android: 21
+  adaptive_icon_background: "#2D3A3A"
+  adaptive_icon_foreground: "assets/logo.png"

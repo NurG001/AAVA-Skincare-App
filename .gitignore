@@ -1,0 +1,56 @@
+# ----------------------------------------------------------------------
+# AAVA PROJECT .gitignore (FINAL VERSION)
+# ----------------------------------------------------------------------
+
+# 1. CRITICAL SECURITY: SIGNING KEYS AND CREDENTIALS
+# This prevents accidentally uploading your keystore file (.jks) or the password file (key.properties).
+/android/key.properties
+/android/*.jks
+/android/*.keystore
+/android/local.properties
+/android/app/local.properties
+/android/.gradle
+
+# 2. FLUTTER, DART, and BUILD ARTIFACTS
+/build/
+.dart_tool/
+.packages
+.dartSession
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub/
+.pub-cache/
+/coverage/
+
+# 3. Android and iOS specific output folders
+/android/app/debug
+/android/app/profile
+/android/app/release
+/android/.idea
+/android/app/.cxx
+/android/app/build
+/android/captures
+/ios/Flutter/.last_build_id
+
+# 4. MISCELLANEOUS (Your existing entries)
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/ 
+
+# Symbolication / Obfuscation related
+app.*.symbols
+app.*.map.json

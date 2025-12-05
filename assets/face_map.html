@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAVA Face Map</title>
+    <!-- Import Model Viewer (Built on ThreeJS) -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+    <style>
+        body { margin: 0; background-color: #FAFAFA; font-family: sans-serif; }
+        model-viewer { width: 100vw; height: 100vh; outline: none; }
+
+        /* THE STICKY BUTTON STYLE */
+        .hotspot {
+            display: block;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid white;
+            background-color: #2D3A3A; /* Charcoal */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* PULSE ANIMATION */
+        .hotspot::after {
+            content: '';
+            position: absolute;
+            top: -4px; left: -4px;
+            right: -4px; bottom: -4px;
+            border-radius: 50%;
+            border: 2px solid #8DA399; /* Sage */
+            animation: pulse 2s infinite;
+            opacity: 0;
+        }
+
+        .hotspot.selected {
+            background-color: #8DA399; /* Sage when clicked */
+            transform: scale(1.3);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.8); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 3D SCENE -->
+<!-- 'src' points to the local asset passed from Flutter -->
+<model-viewer
+        id="faceViewer"
+        src="face.glb"
+        camera-controls
+        disable-zoom
+        auto-rotate
+        shadow-intensity="1"
+        camera-orbit="0deg 90deg 105%"
+        min-camera-orbit="-45deg 0deg auto"
+        max-camera-orbit="45deg 180deg auto"
+        interpolation-decay="200">
+
+    <!-- HOTSPOTS (Sticky Buttons) -->
+    <!-- Coordinates: X (Left/Right) Y (Up/Down) Z (Forward/Back) -->
+
+    <button class="hotspot" slot="hotspot-forehead"
+            data-position="0 0.16 0.12" data-normal="0 0 1"
+            onclick="handleClick('Forehead')">
+    </button>
+
+    <button class="hotspot" slot="hotspot-nose"
+            data-position="0 0.05 0.18" data-normal="0 0 1"
+            onclick="handleClick('Nose')">
+    </button>
+
+    <button class="hotspot" slot="hotspot-cheek-l"
+            data-position="-0.08 0.02 0.13" data-normal="-0.5 0 1"
+            onclick="handleClick('Left Cheek')">
+    </button>
+
+    <button class="hotspot" slot="hotspot-cheek-r"
+            data-position="0.08 0.02 0.13" data-normal="0.5 0 1"
+            onclick="handleClick('Right Cheek')">
+    </button>
+
+    <button class="hotspot" slot="hotspot-chin"
+            data-position="0 -0.12 0.14" data-normal="0 0 1"
+            onclick="handleClick('Chin')">
+    </button>
+
+</model-viewer>
+
+<script>
+    // Handle Clicks and send to Flutter
+    function handleClick(zone) {
+        // Update UI (visual feedback)
+        document.querySelectorAll('.hotspot').forEach(b => b.classList.remove('selected'));
+        event.target.classList.add('selected');
+
+        // Send message to Flutter
+        if(window.flutter_inappwebview) {
+            window.flutter_inappwebview.callHandler('onZoneTap', zone);
+        }
+    }
+
+    // Listen for reset command from Flutter
+    window.addEventListener('resetSelection', () => {
+        document.querySelectorAll('.hotspot').forEach(b => b.classList.remove('selected'));
+    });
+</script>
+</body>
+</html>
