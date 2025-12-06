@@ -17,13 +17,22 @@ The project maintains a high-end **"Sage & Sand"** aesthetic, prioritizing clari
 
 ## 🚀 Key Feature Showcase (Dynamic Demo)
 
-### **1. AI Skin Analysis & Heatmap**
+![Splash screen.]
+(https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/SplashScreen.gif)
+
+### **1. AAVA Dashboard**
 See the core function in action. The app guides the user to center their face and then displays the result with the simulated inflammation overlay.
 
-![GIF showing the Face Cutout guide, capture, and the final Heatmap result screen.]
-(https://raw.githubusercontent.com/YourUsername/AAVA-Skincare-App/main/assets/media/heatmap_scan.gif)
+![DASHBOARD]
+(https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/Dashboard.gif)
 
-### **2. Ingredient Scanner (OCR)**
+### **2. AI Skin Analysis & Heatmap**
+See the core function in action. The app guides the user to center their face and then displays the result with the simulated inflammation overlay.
+
+![GIF showing the result of ai analysis.]
+(https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/AIAnalysis.gif)
+
+### **3. **
 Demonstrates the utility of the ML Kit integration for product verification.
 
 ![GIF showing the camera scanning a list of ingredients and instantly flagging a risky ingredient (Red/Coral). ]
