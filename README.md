@@ -18,33 +18,34 @@ The project maintains a high-end **"Sage & Sand"** aesthetic, prioritizing clari
 ## 🚀 Key Feature Showcase (Dynamic Demo)
 
 ![Splash screen.]
-(https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/SplashScreen.gif)
+(https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/Splash.png)
 
 ### **1. AAVA Dashboard**
 See the core function in action. The app guides the user to center their face and then displays the result with the simulated inflammation overlay.
 
 ![DASHBOARD]
-(https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/Dashboard.gif)
+(https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/Dashboard.png)
 
 ### **2. AI Skin Analysis & Heatmap**
 See the core function in action. The app guides the user to center their face and then displays the result with the simulated inflammation overlay.
 
 ![GIF showing the result of ai analysis.]
-(https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/AIAnalysis.gif)
+(https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/AI%20Analysis.png)
+![Heatmap]
+(https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/Heatmap.png)
 
 ### **3. **
 Demonstrates the utility of the ML Kit integration for product verification.
 
 ![GIF showing the camera scanning a list of ingredients and instantly flagging a risky ingredient (Red/Coral). ]
-(https://raw.githubusercontent.com/YourUsername/AAVA-Skincare-App/main/assets/media/ocr_scan.gif)
+(https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/Product%20Scanner.png)
 
 ### **3. UX Highlights & Visualization**
 Showcases the interactive and fluid components of the application.
 
 | Feature | Visual Demo |
 | :--- | :--- |
-| **Pulsing FAB** | ![GIF showing the floating action button pulsing for quick access.] (https://raw.githubusercontent.com/YourUsername/AAVA-Skincare-App/main/assets/media/pulsing_fab.gif) |
-| **Interactive Face Map** | ![GIF showing a user tapping a zone on the face map which zooms in with analysis data.] (https://raw.githubusercontent.com/YourUsername/AAVA-Skincare-App/main/assets/media/face_map_explore.gif) |
+| **Interactive Face Map** | ![GIF showing a user tapping a zone on the face map which zooms in with analysis data.] (https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/Facemap.png) |
 
 ---
 
