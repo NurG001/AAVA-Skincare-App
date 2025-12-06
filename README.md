@@ -13,6 +13,24 @@ The project maintains a high-end **"Sage & Sand"** aesthetic, prioritizing clari
 
 ---
 
+## 📸 Application Showcase
+
+### **Visual Elements**
+
+| Screen | Description |
+| :--- | :--- |
+| **Startup Screen** | Dynamic video background and elegant Italiana typography. |
+| **Home Dashboard** | Clutter-free view prioritizing the Weather Card and the two primary Hero Actions. |
+| **AI Results** | The full results view showing Heatmap, Score, and Dermatologist Advice. |
+
+**Visual Placement (Insert your actual image files here):**
+
+![AAVA Startup Screen: Video background with large "AAVA" text in dark color.](https://github.com/NurG001/AAVA-Skincare-App/blob/main/Extra/Splash%20Screen.mp4)
+![AAVA Home Dashboard: Weather card, AI Skin Scanner and Ingredient Checker Hero cards.](https://github.com/NurG001/AAVA-Skincare-App/blob/main/Extra/Dashboard.mp4)
+![AAVA Analysis Result: Result screen showing the Heatmap and Doctor Advice panel.](https://github.com/NurG001/AAVA-Skincare-App/blob/main/Extra/AI%20Analysis.mp4)
+
+---
+
 ## 💡 Core Features & Technical Highlights
 
 ### **1. AI-Driven Diagnostics (The Classifier)**
