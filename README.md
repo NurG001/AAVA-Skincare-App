@@ -13,21 +13,38 @@ The project maintains a high-end **"Sage & Sand"** aesthetic, prioritizing clari
 
 ---
 
-## 📸 Application Showcase
+---
 
-### **Visual Elements**
+## 🚀 Key Feature Showcase (Dynamic Demo)
 
-| Screen | Description |
+![Splash screen.]
+(https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/SplashScreen.gif)
+
+### **1. AAVA Dashboard**
+See the core function in action. The app guides the user to center their face and then displays the result with the simulated inflammation overlay.
+
+![DASHBOARD]
+(https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/Dashboard.gif)
+
+### **2. AI Skin Analysis & Heatmap**
+See the core function in action. The app guides the user to center their face and then displays the result with the simulated inflammation overlay.
+
+![GIF showing the result of ai analysis.]
+(https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/AIAnalysis.gif)
+
+### **3. **
+Demonstrates the utility of the ML Kit integration for product verification.
+
+![GIF showing the camera scanning a list of ingredients and instantly flagging a risky ingredient (Red/Coral). ]
+(https://raw.githubusercontent.com/YourUsername/AAVA-Skincare-App/main/assets/media/ocr_scan.gif)
+
+### **3. UX Highlights & Visualization**
+Showcases the interactive and fluid components of the application.
+
+| Feature | Visual Demo |
 | :--- | :--- |
-| **Startup Screen** | Dynamic video background and elegant Italiana typography. |
-| **Home Dashboard** | Clutter-free view prioritizing the Weather Card and the two primary Hero Actions. |
-| **AI Results** | The full results view showing Heatmap, Score, and Dermatologist Advice. |
-
-**Visual Placement (Insert your actual image files here):**
-
-![AAVA Startup Screen: Video background with large "AAVA" text in dark color.](https://github.com/NurG001/AAVA-Skincare-App/blob/main/Extra/Splash%20Screen.mp4)
-![AAVA Home Dashboard: Weather card, AI Skin Scanner and Ingredient Checker Hero cards.](https://github.com/NurG001/AAVA-Skincare-App/blob/main/Extra/Dashboard.mp4)
-![AAVA Analysis Result: Result screen showing the Heatmap and Doctor Advice panel.](https://github.com/NurG001/AAVA-Skincare-App/blob/main/Extra/AI%20Analysis.mp4)
+| **Pulsing FAB** | ![GIF showing the floating action button pulsing for quick access.] (https://raw.githubusercontent.com/YourUsername/AAVA-Skincare-App/main/assets/media/pulsing_fab.gif) |
+| **Interactive Face Map** | ![GIF showing a user tapping a zone on the face map which zooms in with analysis data.] (https://raw.githubusercontent.com/YourUsername/AAVA-Skincare-App/main/assets/media/face_map_explore.gif) |
 
 ---
 
