@@ -8,45 +8,62 @@
 ## 🌟 Project Overview: Pure Skin Intelligence
 
 AAVA is a cross-platform mobile application designed to eliminate guesswork in skincare. It provides users with instant, data-driven diagnostics by fusing on-device Machine Learning (ML) with visualization tools.
-
 The project maintains a high-end **"Sage & Sand"** aesthetic, prioritizing clarity, speed, and user experience (UX).
 
----
-
+![Splash](https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/Splash2.gif)
 ---
 
 ## 🚀 Key Feature Showcase (Dynamic Demo)
 
-![Splash screen.]
-(https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/Splash.png)
+### 1. AAVA Dashboard & Premium UX
+See the core function in action. The app guides the user to center their face and then displays the result. Experience a clean, fast, and smooth interface with a skincare journal.
 
-### **1. AAVA Dashboard**
-See the core function in action. The app guides the user to center their face and then displays the result with the simulated inflammation overlay.
+<table>
+  <tr>
+    <th align="center">Live Dashboard Demo (GIF)</th>
+    <th align="center">Premium Design Concept (PNG)</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/Dashboard.gif" width="450" alt="Dashboard GIF">
+    </td>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/Dashboard.png" width="550" alt="Premium UX PNG">
+    </td>
+  </tr>
+</table>
 
-![DASHBOARD]
-(https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/Dashboard.png)
+### 2. AI Skin Analysis & Heatmap
+Watch the AI analyze skin conditions in real-time, followed by a clear visualization of the simulated inflammation overlay.
 
-### **2. AI Skin Analysis & Heatmap**
-See the core function in action. The app guides the user to center their face and then displays the result with the simulated inflammation overlay.
+<table>
+  <tr>
+    <th align="center">AI Analysis Process (GIF)</th>
+    <th align="center">Heatmap Visualization (PNG)</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/AIAnalysis.gif" width="450" alt="AI Analysis GIF">
+    </td>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/Heatmap.png" width="550" alt="Heatmap PNG">
+    </td>
+  </tr>
+</table>
 
-![GIF showing the result of ai analysis.]
-(https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/AI%20Analysis.png)
-![Heatmap]
-(https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/Heatmap.png)
+### 3. Product Verification
+Demonstrates the utility of the ML Kit integration for instantly scanning and flagging risky ingredients.
 
-### **3. **
-Demonstrates the utility of the ML Kit integration for product verification.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/Product%20Scanner.png" width="500" alt="Product Scanner">
+</p>
 
-![GIF showing the camera scanning a list of ingredients and instantly flagging a risky ingredient (Red/Coral). ]
-(https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/Product%20Scanner.png)
-
-### **3. UX Highlights & Visualization**
+### 4. UX Highlights & Visualization
 Showcases the interactive and fluid components of the application.
 
 | Feature | Visual Demo |
 | :--- | :--- |
-| **Interactive Face Map** | ![GIF showing a user tapping a zone on the face map which zooms in with analysis data.] (https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/Facemap.png) |
-
+| **Interactive Face Map**<br>Tap a zone on the face map to zoom in and see detailed analysis data. | <img src="https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/FaceMap.gif" width="550" alt="FaceMap GIF"> |
 ---
 
 ## 💡 Core Features & Technical Highlights
@@ -104,7 +121,7 @@ shimmer: ^3.0.0
 ### **Download the App**
 To test the full experience on Android, download the signed APK:
 
-[Download AAVA APK (Test Flight Link)]**(https://drive.google.com/file/d/1EADZD4a8WLCsam_0at_1Dyt-VCYId1_Q/view?usp=drive_link)**
+[Download AAVA.APK (Test Flight Link)](https://drive.google.com/file/d/1EADZD4a8WLCsam_0at_1Dyt-VCYId1_Q/view?usp=drive_link)
 
 ### **Technical Milestones**
 
