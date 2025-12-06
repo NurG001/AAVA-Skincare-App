@@ -10,7 +10,7 @@
 AAVA is a cross-platform mobile application designed to eliminate guesswork in skincare. It provides users with instant, data-driven diagnostics by fusing on-device Machine Learning (ML) with visualization tools.
 The project maintains a high-end **"Sage & Sand"** aesthetic, prioritizing clarity, speed, and user experience (UX).
 
-![Splash](https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/Splash2.gif)
+![Splash](https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/AAVA%20(Banner%20Landscape).gif)
 ---
 
 ## 🚀 Key Feature Showcase (Dynamic Demo)
