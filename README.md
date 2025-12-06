@@ -30,7 +30,7 @@ See the core function in action. The app guides the user to center their face an
 See the core function in action. The app guides the user to center their face and then displays the result with the simulated inflammation overlay.
 
 ![GIF showing the result of ai analysis.]
-(https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/AIAnalysis.gif)
+(https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/AIAnalysis.gif)
 
 ### **3. **
 Demonstrates the utility of the ML Kit integration for product verification.
