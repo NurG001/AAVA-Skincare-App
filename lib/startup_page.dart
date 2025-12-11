@@ -36,7 +36,7 @@ class _StartupPageState extends State<StartupPage> {
     final prefs = await SharedPreferences.getInstance();
     final bool hasSeenOnboarding = prefs.getBool('has_seen_onboarding') ?? false;
 
-    // Wait 3 seconds to ensure the splash/video is fully visible
+  
     await Future.delayed(const Duration(seconds: 3));
 
     if (!mounted) return;
@@ -48,7 +48,7 @@ class _StartupPageState extends State<StartupPage> {
       nextScreen = const HowToUsePage();
     }
 
-    // Smooth transition
+    
     Navigator.pushReplacement(
       context,
       PageRouteBuilder(
@@ -73,7 +73,7 @@ class _StartupPageState extends State<StartupPage> {
       backgroundColor: const Color(0xFFFAFAFA),
       body: Stack(
         children: [
-          // --- VIDEO BACKGROUND ---
+          
           if (_videoController.value.isInitialized)
             SizedBox.expand(
               child: FittedBox(
@@ -86,15 +86,15 @@ class _StartupPageState extends State<StartupPage> {
               ),
             ),
 
-          // --- CONTENT ---
+         
           SafeArea(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // CHANGED: Increased flex from 3 to 12 to push text further down
+               
                 const Spacer(flex: 12),
 
-                // TITLE
+                
                 FadeInUp(
                   duration: const Duration(milliseconds: 1200),
                   child: Text(
@@ -110,7 +110,7 @@ class _StartupPageState extends State<StartupPage> {
 
                 const SizedBox(height: 10),
 
-                // SUBTITLE
+                
                 FadeInUp(
                   delay: const Duration(milliseconds: 500),
                   duration: const Duration(milliseconds: 1000),
@@ -127,10 +127,10 @@ class _StartupPageState extends State<StartupPage> {
                   ),
                 ),
 
-                // Adjusted bottom spacer to balance the layout
+                
                 const Spacer(flex: 4),
 
-                // LOADING DOTS
+                
                 FadeIn(
                   delay: const Duration(milliseconds: 800),
                   child: const SizedBox(height: 8, child: LinearProgressIndicator(color: Color(0xFF8DA399), backgroundColor: Color(0xFFFAFAFA))),
