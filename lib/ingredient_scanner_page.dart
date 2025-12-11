@@ -22,7 +22,7 @@ class _IngredientScannerPageState extends State<IngredientScannerPage> with Sing
   final ImagePicker _picker = ImagePicker();
 
   bool _isScanning = false;
-  bool _isFlashOn = false; // Track flash state
+  bool _isFlashOn = false;
   late AnimationController _animationController;
   late Animation<double> _animation;
 
@@ -46,7 +46,7 @@ class _IngredientScannerPageState extends State<IngredientScannerPage> with Sing
     final cameras = await availableCameras();
 
     if (cameras.isNotEmpty) {
-      // EXPLICITLY FIND BACK CAMERA
+      
       final backCamera = cameras.firstWhere(
             (camera) => camera.lensDirection == CameraLensDirection.back,
         orElse: () => cameras.first,
@@ -57,7 +57,7 @@ class _IngredientScannerPageState extends State<IngredientScannerPage> with Sing
         ResolutionPreset.high,
         enableAudio: false,
         imageFormatGroup: Platform.isAndroid
-            ? ImageFormatGroup.nv21 // Better for ML Kit on Android
+            ? ImageFormatGroup.nv21 
             : ImageFormatGroup.bgra8888,
       );
 
@@ -66,7 +66,7 @@ class _IngredientScannerPageState extends State<IngredientScannerPage> with Sing
     }
   }
 
-  // --- NEW: TOGGLE FLASH ---
+  
   Future<void> _toggleFlash() async {
     if (_cameraController == null || !_cameraController!.value.isInitialized) return;
 
@@ -74,7 +74,7 @@ class _IngredientScannerPageState extends State<IngredientScannerPage> with Sing
       if (_isFlashOn) {
         await _cameraController!.setFlashMode(FlashMode.off);
       } else {
-        await _cameraController!.setFlashMode(FlashMode.torch); // Torch is better for scanning text
+        await _cameraController!.setFlashMode(FlashMode.torch); 
       }
 
       setState(() {
@@ -88,7 +88,7 @@ class _IngredientScannerPageState extends State<IngredientScannerPage> with Sing
   Future<void> _processImageFile(String path) async {
     setState(() { _isScanning = true; _scannedIngredients.clear(); });
 
-    // Turn off flash after capture to save battery
+    
     if (_isFlashOn) _toggleFlash();
 
     try {
