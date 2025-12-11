@@ -25,10 +25,10 @@ See the core function in action. The app guides the user to center their face an
   </tr>
   <tr>
     <td align="center">
-      <img src="https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/Dashboard.gif" width="450" alt="Dashboard GIF">
+      <img src="https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/Dashboard.gif" width="450" alt="Dashboard GIF">
     </td>
     <td align="center">
-      <img src="https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/Dashboard.png" width="550" alt="Premium UX PNG">
+      <img src="https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/Dashboard.png" width="550" alt="Premium UX PNG">
     </td>
   </tr>
 </table>
@@ -46,7 +46,7 @@ Watch the AI analyze skin conditions in real-time, followed by a clear visualiza
       <img src="https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/AIAnalysis.gif" width="450" alt="AI Analysis GIF">
     </td>
     <td align="center">
-      <img src="https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/Heatmap.png" width="550" alt="Heatmap PNG">
+      <img src="https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/Heatmap.png" width="550" alt="Heatmap PNG">
     </td>
   </tr>
 </table>
@@ -55,7 +55,7 @@ Watch the AI analyze skin conditions in real-time, followed by a clear visualiza
 Demonstrates the utility of the ML Kit integration for instantly scanning and flagging risky ingredients.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/Product%20Scanner.png" width="500" alt="Product Scanner">
+  <img src="https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/Product%20Scanner.png" width="500" alt="Product Scanner">
 </p>
 
 ### 4. UX Highlights & Visualization
@@ -63,7 +63,7 @@ Showcases the interactive and fluid components of the application.
 
 | Feature | Visual Demo |
 | :--- | :--- |
-| **Interactive Face Map**<br>Tap a zone on the face map to zoom in and see detailed analysis data. | <img src="https://raw.githubusercontent.com/NurG001/AAVA-Skincare-App/refs/heads/main/assets/media/FaceMap.gif" width="550" alt="FaceMap GIF"> |
+| **Interactive Face Map**<br>Tap a zone on the face map to zoom in and see detailed analysis data. | <img src="https://github.com/NurG001/AAVA-Skincare-App/blob/main/assets/media/FaceMap.gif" width="550" alt="FaceMap GIF"> |
 ---
 
 ## 💡 Core Features & Technical Highlights
