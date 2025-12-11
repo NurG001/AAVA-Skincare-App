@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; // <--- NEW IMPORT for SystemChrome
+import 'package:flutter/services.dart'; 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:animate_do/animate_do.dart';
@@ -24,16 +24,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  // --- SETTINGS STATE ---
   bool _isCelsius = true;
 
-  // Animation Controller for Pulse Effect
   late AnimationController _pulseController;
 
   @override
   void initState() {
     super.initState();
-    // Initialize Pulse Animation
+
     _pulseController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1500),
@@ -52,13 +50,13 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
-    // --- FIX: SET STATUS BAR TO DARK ICONS ---
+    
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent, // Transparent background for a clean look
-      statusBarIconBrightness: Brightness.dark, // For Android icons (Black/Dark Grey)
-      statusBarBrightness: Brightness.light, // For iOS text/icons (Requires light background)
+      statusBarColor: Colors.transparent, 
+      statusBarIconBrightness: Brightness.dark, 
+      statusBarBrightness: Brightness.light,
     ));
-    // ------------------------------------------
+    
 
     return Scaffold(
       key: _scaffoldKey,
@@ -66,7 +64,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
 
       endDrawer: _buildSideMenu(),
 
-      // --- PULSING FAB ---
+     
       floatingActionButton: ScaleTransition(
         scale: Tween<double>(begin: 1.0, end: 1.08).animate(
             CurvedAnimation(parent: _pulseController, curve: Curves.easeInOut)
@@ -130,7 +128,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               ),
               const SizedBox(height: 30),
 
-              // --- 2. WEATHER ---
+              
               FadeInUp(
                 delay: const Duration(milliseconds: 200),
                 duration: const Duration(milliseconds: 800),
@@ -139,7 +137,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
 
               const SizedBox(height: 35),
 
-              // --- 3. CORE ANALYSIS FEATURES ---
+              
               FadeInUp(
                 delay: const Duration(milliseconds: 400),
                 duration: const Duration(milliseconds: 800),
@@ -392,7 +390,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     );
   }
 
-  // --- WIDGET BUILDERS ---
+  // --- WIDGET---
   Widget _buildSmartToolCard(BuildContext context, {required String title, required String description, required IconData icon, String buttonText = "OPEN", required VoidCallback onTap}) {
     return BouncingButton(
       onTap: onTap,
