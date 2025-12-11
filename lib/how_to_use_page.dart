@@ -15,7 +15,7 @@ class _HowToUsePageState extends State<HowToUsePage> {
   final PageController _controller = PageController();
   int _currentIndex = 0;
 
-  // --- FINAL INSTRUCTION CONTENT ---
+  
   final List<Map<String, dynamic>> _steps = [
     {
       "title": "Welcome to AAVA",
@@ -64,12 +64,12 @@ class _HowToUsePageState extends State<HowToUsePage> {
     },
   ];
 
-  // --- PERSISTENCE LOGIC: SETS THE FLAG ---
+  
   Future<void> _completeOnboarding() async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('has_seen_onboarding', true); // Set the flag to TRUE
+    await prefs.setBool('has_seen_onboarding', true);
 
-    // Navigate to Home and clear the stack
+    
     Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute(builder: (context) => const HomePage()),
@@ -85,7 +85,7 @@ class _HowToUsePageState extends State<HowToUsePage> {
         children: [
           Column(
             children: [
-              // 1. SWIPEABLE CONTENT
+          
               Expanded(
                 child: PageView.builder(
                   controller: _controller,
@@ -105,16 +105,16 @@ class _HowToUsePageState extends State<HowToUsePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // Page Indicator Dots
+                 
                     Row(
                       children: List.generate(_steps.length, (index) => _buildDot(index)),
                     ),
 
-                    // Next / Done Button
+                  
                     ElevatedButton(
                       onPressed: () {
                         if (_currentIndex == _steps.length - 1) {
-                          _completeOnboarding(); // Sets flag and routes to home
+                          _completeOnboarding(); 
                         } else {
                           _controller.nextPage(
                             duration: const Duration(milliseconds: 500),
@@ -140,12 +140,12 @@ class _HowToUsePageState extends State<HowToUsePage> {
             ],
           ),
 
-          // 3. SKIP BUTTON
+          
           Positioned(
             top: 50,
             right: 20,
             child: TextButton(
-              onPressed: _completeOnboarding, // Sets flag and routes to home
+              onPressed: _completeOnboarding, 
               child: Text(
                 "Skip",
                 style: GoogleFonts.lato(
@@ -160,7 +160,6 @@ class _HowToUsePageState extends State<HowToUsePage> {
     );
   }
 
-  // --- WIDGET BUILDERS ---
 
   Widget _buildTutorialCard(Map<String, dynamic> step) {
     return Padding(
