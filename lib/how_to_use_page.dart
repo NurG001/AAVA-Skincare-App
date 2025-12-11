@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animate_do/animate_do.dart';
-import 'package:shared_preferences/shared_preferences.dart'; // CRITICAL: For setting the flag
+import 'package:shared_preferences/shared_preferences.dart'; 
 import 'home_page.dart';
 
 class HowToUsePage extends StatefulWidget {
