@@ -5,7 +5,7 @@ import 'package:animate_do/animate_do.dart';
 class TipsPage extends StatelessWidget {
   const TipsPage({super.key});
 
-  // --- EXTENDED BLOG DATA SOURCE ---
+
   final List<Map<String, String>> _tips = const [
     {
       "title": "Hydration is Key",
@@ -126,7 +126,7 @@ Consider switching to silk. It causes less friction and absorbs less product fro
   Widget _buildBlogCard(BuildContext context, Map<String, String> tip) {
     return GestureDetector(
       onTap: () {
-        // Navigate to the Detail Page
+        
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -150,11 +150,11 @@ Consider switching to silk. It causes less friction and absorbs less product fro
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // 1. IMAGE HEADER (With Hero Animation)
+           
             ClipRRect(
               borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
               child: Hero(
-                tag: tip['title']!, // Unique tag for smooth transition
+                tag: tip['title']!, 
                 child: Container(
                   height: 150,
                   width: double.infinity,
@@ -245,7 +245,7 @@ Consider switching to silk. It causes less friction and absorbs less product fro
   }
 }
 
-// --- NEW CLASS: THE FULL ARTICLE PAGE ---
+
 class ArticleDetailPage extends StatelessWidget {
   final Map<String, String> tip;
 
@@ -257,7 +257,7 @@ class ArticleDetailPage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: [
-          // 1. EXPANDING HEADER IMAGE
+          
           SliverAppBar(
             expandedHeight: 300.0,
             pinned: true,
@@ -290,7 +290,7 @@ class ArticleDetailPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Meta Data
+                  
                   Row(
                     children: [
                       Container(
@@ -317,7 +317,7 @@ class ArticleDetailPage extends StatelessWidget {
 
                   const SizedBox(height: 20),
 
-                  // Main Title
+                  
                   Text(
                     tip['title']!,
                     style: GoogleFonts.tenorSans(
@@ -332,7 +332,7 @@ class ArticleDetailPage extends StatelessWidget {
                   const Divider(),
                   const SizedBox(height: 20),
 
-                  // The Content (With basic styling)
+              
                   Text(
                     tip['content']!,
                     style: GoogleFonts.lato(
@@ -344,7 +344,7 @@ class ArticleDetailPage extends StatelessWidget {
 
                   const SizedBox(height: 50),
 
-                  // Footer
+                 
                   Center(
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
