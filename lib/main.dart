@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart'; // REQUIRED
+import 'package:shared_preferences/shared_preferences.dart'; 
 import 'startup_page.dart';
 
-// --- INITIALIZE STORAGE BEFORE APP RUNS ---
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // Ensure SharedPreferences is ready globally for the StartupPage check
   await SharedPreferences.getInstance();
   runApp(const AavaApp());
 }
