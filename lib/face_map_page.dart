@@ -12,11 +12,9 @@ class FaceMapPage extends StatefulWidget {
 class _FaceMapPageState extends State<FaceMapPage> {
   String? _selectedZone;
 
-  // --- ANIMATION STATE ---
   Alignment _imageAlignment = Alignment.center;
   double _imageScale = 1.0;
 
-  // --- RICH DATA SOURCE ---
   final Map<String, Map<String, dynamic>> _zoneData = {
     "Forehead": {
       "system": "Digestive System & Stress",
@@ -24,7 +22,7 @@ class _FaceMapPageState extends State<FaceMapPage> {
       "tip": "Drink more water. Sleep by 10 PM. Reduce processed foods.",
       "icon": Icons.nightlight_round,
       "color": const Color(0xFF8DA399), // Sage
-      "align": const Alignment(0.0, -0.8), // Focus near top
+      "align": const Alignment(0.0, -0.8), 
     },
     "Nose": {
       "system": "Heart & Blood Pressure",
@@ -32,7 +30,7 @@ class _FaceMapPageState extends State<FaceMapPage> {
       "tip": "Check cholesterol. Eat cooling foods (cucumber). Cut salt.",
       "icon": Icons.favorite_rounded,
       "color": const Color(0xFFE27D60), // Coral
-      "align": const Alignment(0.0, -0.2), // Focus center
+      "align": const Alignment(0.0, -0.2), 
     },
     "Cheeks": {
       "system": "Respiratory System",
@@ -40,7 +38,7 @@ class _FaceMapPageState extends State<FaceMapPage> {
       "tip": "Get fresh air. Clean phone screen. Change pillowcases often.",
       "icon": Icons.air_rounded,
       "color": const Color(0xFF9FB8AD), // Blue-Green
-      "align": const Alignment(-0.4, 0.1), // Focus middle (Left Cheek default)
+      "align": const Alignment(-0.4, 0.1), 
     },
     "Chin": {
       "system": "Hormones & Endocrine",
@@ -48,16 +46,15 @@ class _FaceMapPageState extends State<FaceMapPage> {
       "tip": "Drink spearmint tea. Take Omega-3s. Reduce stress.",
       "icon": Icons.spa_rounded,
       "color": const Color(0xFF7B6F9E), // Purple
-      "align": const Alignment(0.0, 0.9), // Focus bottom
+      "align": const Alignment(0.0, 0.9), 
     },
   };
 
   void _handleZoneTap(String zone, {Alignment? customAlign}) {
     setState(() {
       _selectedZone = zone;
-      // Zoom in (1.8x) and pan to the specific zone alignment
-      // Use customAlign if provided (e.g., for left vs right cheek), else use default
-      _imageScale = 2.5; // High zoom for detail
+
+      _imageScale = 2.5; 
       _imageAlignment = customAlign ?? _zoneData[zone]!['align'];
     });
   }
@@ -65,7 +62,7 @@ class _FaceMapPageState extends State<FaceMapPage> {
   void _resetView() {
     setState(() {
       _selectedZone = null;
-      // Zoom out to normal
+
       _imageScale = 1.0;
       _imageAlignment = Alignment.center;
     });
@@ -87,48 +84,40 @@ class _FaceMapPageState extends State<FaceMapPage> {
       ),
       body: Column(
         children: [
-          // --- 1. INTERACTIVE FACE AREA ---
+
           Expanded(
             flex: 5,
             child: GestureDetector(
-              onTap: _resetView, // Tap background to zoom out
+              onTap: _resetView, 
               child: Container(
                 width: double.infinity,
                 color: Colors.transparent,
                 child: Stack(
                   children: [
-                    // A. The Face Image (Animated Pan/Zoom)
+
                     ClipRect(
                       child: AnimatedAlign(
                         duration: const Duration(milliseconds: 800),
-                        curve: Curves.easeOutCubic, // Smooth slow-down effect
+                        curve: Curves.easeOutCubic, 
                         alignment: _imageAlignment,
                         child: AnimatedScale(
                           duration: const Duration(milliseconds: 800),
                           curve: Curves.easeOutCubic,
                           scale: _imageScale,
                           child: Stack(
-                            alignment: Alignment.center, // Center glow on image
+                            alignment: Alignment.center, 
                             children: [
                               Image.asset(
                                 'assets/face_mesh.png',
-                                height: 600, // Base height
+                                height: 600, 
                                 fit: BoxFit.contain,
                                 errorBuilder: (c, e, s) => const Center(child: Icon(Icons.face, size: 100, color: Colors.grey)),
                               ),
 
-                              // B. THE GOLDEN GLOW LAYER (New!)
-                              // This sits ON TOP of the image but moves/scales WITH it
                               if (_selectedZone != null)
                                 Positioned.fill(
                                   child: Align(
-                                    // If a custom alignment was used (like for cheeks), we need to approximate or pass it.
-                                    // For simplicity, we use the main zone alignment relative to the image center.
-                                    // Note: Alignments are relative to the parent. Since this is inside the Stack with the Image,
-                                    // and the whole stack is being aligned/scaled, we need to place the glow relative to the image itself.
-                                    // However, simpler approach: Just use the same alignment logic as buttons but relative to image stack.
 
-                                    // Let's use a specific glow widget that uses the zone's alignment relative to image center
                                     alignment: _getGlowAlignment(_selectedZone!),
                                     child: FadeIn(
                                       duration: const Duration(milliseconds: 600),
@@ -138,8 +127,8 @@ class _FaceMapPageState extends State<FaceMapPage> {
                                           shape: BoxShape.circle,
                                           gradient: RadialGradient(
                                             colors: [
-                                              const Color(0xFFFFD700).withOpacity(0.6), // Strong Gold Core
-                                              const Color(0xFFFFD700).withOpacity(0.0), // Fade out
+                                              const Color(0xFFFFD700).withOpacity(0.6),
+                                              const Color(0xFFFFD700).withOpacity(0.0), 
                                             ],
                                             stops: const [0.0, 1.0],
                                           ),
@@ -154,37 +143,36 @@ class _FaceMapPageState extends State<FaceMapPage> {
                       ),
                     ),
 
-                    // C. The Buttons (Overlay)
-                    // We hide buttons when zoomed in so they don't block the view
+
                     AnimatedOpacity(
                       duration: const Duration(milliseconds: 300),
                       opacity: _selectedZone == null ? 1.0 : 0.0,
                       child: IgnorePointer(
-                        ignoring: _selectedZone != null, // Disable clicks when hidden
+                        ignoring: _selectedZone != null, 
                         child: Stack(
                           children: [
-                            // FOREHEAD
+                            
                             Align(alignment: const Alignment(0.0, -0.35), child: _buildFacePoint("Forehead")),
-                            // NOSE
+                            
                             Align(alignment: const Alignment(0.0, -0.02), child: _buildFacePoint("Nose")),
-                            // LEFT CHEEK
+                        
                             Align(
                                 alignment: const Alignment(-0.3, 0.05),
                                 child: _buildFacePoint("Cheeks", customAlign: const Alignment(-0.5, 0.1))
                             ),
-                            // RIGHT CHEEK
+                            
                             Align(
                                 alignment: const Alignment(0.3, 0.05),
                                 child: _buildFacePoint("Cheeks", customAlign: const Alignment(0.5, 0.1))
                             ),
-                            // CHIN
+                           
                             Align(alignment: const Alignment(0.0, 0.35), child: _buildFacePoint("Chin")),
                           ],
                         ),
                       ),
                     ),
 
-                    // D. Instruction Text (Fades out when zoomed)
+                    
                     if (_selectedZone == null)
                       Align(
                         alignment: Alignment.topCenter,
@@ -209,7 +197,7 @@ class _FaceMapPageState extends State<FaceMapPage> {
             ),
           ),
 
-          // --- 2. INFO CARD (Bottom) ---
+         
           Expanded(
             flex: 3,
             child: Container(
@@ -230,20 +218,13 @@ class _FaceMapPageState extends State<FaceMapPage> {
     );
   }
 
-  // --- HELPER: Get Alignment for Glow ---
-  // This approximates where the glow should be on the image itself
   Alignment _getGlowAlignment(String zone) {
-    // Since we are checking `_selectedZone`, we need to know which *specific* tap triggered it
-    // for Cheeks (left vs right). The state `_imageAlignment` actually holds the exact target!
 
-    // However, `_imageAlignment` is used to CENTER the view.
-    // If we want the glow to appear on the feature, we can use the button coordinates.
 
     if (zone == "Forehead") return const Alignment(0.0, -0.55);
     if (zone == "Nose") return const Alignment(0.0, -0.15);
     if (zone == "Chin") return const Alignment(0.0, 0.45);
 
-    // For cheeks, we check the current pan alignment to guess which one was clicked
     if (zone == "Cheeks") {
       if (_imageAlignment.x < 0) return const Alignment(-0.4, 0.05); // Left
       return const Alignment(0.4, 0.05); // Right
@@ -251,7 +232,6 @@ class _FaceMapPageState extends State<FaceMapPage> {
     return Alignment.center;
   }
 
-  // --- WIDGETS ---
 
   Widget _buildDefaultView() {
     return Padding(
