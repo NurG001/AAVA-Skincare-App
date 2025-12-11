@@ -8,7 +8,7 @@ import 'package:lottie/lottie.dart';
 import 'package:shimmer/shimmer.dart';
 
 // TODO: Replace with your actual key
-const String _apiKey = "539079d022f74bb1a1573727250112";
+const String _apiKey = "api_code_not_shown";
 
 class SkinWeatherCard extends StatefulWidget {
   final bool isCelsius;
