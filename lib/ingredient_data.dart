@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class IngredientData {
-  // 0 = Safe (Green), 1 = Caution (Orange), 2 = Avoid/Risk (Red)
+  
   static final Map<String, Map<String, dynamic>> db = {
-    // --- RISKY / COMEDOGENIC ---
+   
     "COCONUT OIL": {
       "rating": 2,
       "tag": "High Comedogenic",
@@ -35,7 +35,7 @@ class IngredientData {
       "desc": "Rating: 4/5. Very rich and clogging. Avoid on face, okay for body."
     },
 
-    // --- GOOD / BENEFICIAL ---
+   
     "NIACINAMIDE": {
       "rating": 0,
       "tag": "Acne Fighter",
