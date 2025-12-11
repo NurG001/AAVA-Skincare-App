@@ -23,10 +23,8 @@ class Classifier {
       final imageFile = File(imagePath);
       var image = img.decodeImage(imageFile.readAsBytesSync())!;
 
-      // Resize to 224x224 (Standard TFLite input)
       image = img.copyResize(image, width: 224, height: 224);
 
-      // Normalize (-1 to 1 for Teachable Machine models)
       var input = List.generate(1, (i) =>
           List.generate(224, (y) =>
               List.generate(224, (x) {
