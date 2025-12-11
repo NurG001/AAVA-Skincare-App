@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'dart:async';
-import 'dart:typed_data'; // Kept for buffer manipulation (for heatmap generation)
+import 'dart:typed_data'; 
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:image_picker/image_picker.dart';
@@ -9,7 +9,7 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:image/image.dart' as img;
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
-// Removed ML Kit dependency for stability
+
 import 'classifier.dart';
 
 class ScanLogicPage extends StatefulWidget {
@@ -25,29 +25,29 @@ enum ScanState { initializing, camera, gallery, scanning, results, live_scan }
 class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateMixin {
   final Classifier _classifier = Classifier();
 
-  // State Management
+  
   ScanState _currentState = ScanState.initializing;
   File? _capturedImage;
   File? _heatmapImage;
   String _result = "";
   bool _showHeatmap = false;
 
-  // Camera State
+  
   CameraController? _cameraController;
   List<CameraDescription>? _cameras;
   int _selectedCameraIndex = 0;
   bool _isFrontCamera = true;
   bool _isFlashOn = false;
 
-  // Animation Controllers
+  
   late AnimationController _scannerController;
   late Animation<double> _scannerAnimation;
-  late AnimationController _breathingController; // Breathing animation for guide
+  late AnimationController _breathingController; 
 
   @override
   void initState() {
     super.initState();
-    _classifier.loadModel(); //
+    _classifier.loadModel(); 
 
     _scannerController = AnimationController(vsync: this, duration: const Duration(seconds: 2));
     _scannerAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(parent: _scannerController, curve: Curves.easeInOut));
@@ -65,7 +65,7 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
     }
   }
 
-  // --- 1. CAMERA SETUP ---
+
   Future<void> _setupCamera() async {
     if (await Permission.camera.request().isDenied) {
       if(mounted) Navigator.pop(context);
@@ -74,7 +74,7 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
 
     _cameras = await availableCameras();
     if (_cameras != null && _cameras!.isNotEmpty) {
-      // Default to front camera for face scan
+     
       int frontCamIndex = 0;
       for (int i = 0; i < _cameras!.length; i++) {
         if (_cameras![i].lensDirection == CameraLensDirection.front) {
@@ -107,7 +107,7 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
       if (mounted) {
         setState(() {
           _isFrontCamera = cameraDescription.lensDirection == CameraLensDirection.front;
-          // Reset flash when switching cameras
+          
           if(_isFlashOn) _toggleFlash();
         });
       }
@@ -116,7 +116,7 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
     }
   }
 
-  // --- CAMERA CONTROL: SWITCH ---
+ 
   Future<void> _switchCamera() async {
     if (_cameras == null || _cameras!.isEmpty) return;
 
@@ -124,7 +124,7 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
     await _initCameraController(_cameras![_selectedCameraIndex]);
   }
 
-  // --- CAMERA CONTROL: FLASH ---
+  
   Future<void> _toggleFlash() async {
     if (_cameraController == null || !_cameraController!.value.isInitialized || _isFrontCamera) return;
 
@@ -144,7 +144,7 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
   }
 
 
-  // --- 2. GALLERY PICKER ---
+  
   Future<void> _pickFromGallery() async {
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
@@ -156,7 +156,7 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
     }
   }
 
-  // --- 3. CAPTURE & ANALYZE ---
+
   Future<void> _takePhoto() async {
     if (_cameraController == null || !_cameraController!.value.isInitialized) return;
 
@@ -199,7 +199,7 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
     }
   }
 
-  // --- 4. HEATMAP LOGIC (Same as before) ---
+  
   Future<File> _generateHeatmap(File original) async {
     final bytes = await original.readAsBytes();
     img.Image? src = img.decodeImage(bytes);
@@ -223,7 +223,7 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
   }
 
 
-  // --- 5. INSIGHTS LOGIC (Same as before) ---
+  
   Map<String, String> _getInsights() {
     if (_result.contains("Level 0")) {
       return {"title": "Clear / Normal", "desc": "Your skin barrier appears healthy.", "care": "Maintain with gentle cleanser & SPF.", "doctor": "Routine check-up.", "alert": "low"};
@@ -258,7 +258,7 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
     super.dispose();
   }
 
-  // --- BUILD METHOD AND VIEWS (Refactored) ---
+  
 
   @override
   Widget build(BuildContext context) {
@@ -302,7 +302,7 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
     }
   }
 
-  // === VIEW 1: STABLE CAMERA VIEW WITH OVERLAYS ===
+ 
   Widget _buildCameraView() {
     if (_cameraController == null || !_cameraController!.value.isInitialized) {
       return const Center(child: Text("Loading Camera...", style: TextStyle(color: Colors.white)));
@@ -314,13 +314,13 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
         // 1. Camera Feed
         CameraPreview(_cameraController!),
 
-        // 2. Face Cutout Overlay (Custom Painter)
+        // 2. Face Cutout Overlay
         CustomPaint(
           painter: FaceCutoutPainter(),
           child: Container(),
         ),
 
-        // 3. Animated Border (Breathing effect around the face)
+        // 3. Animated Border
         Center(
           child: AnimatedBuilder(
             animation: _breathingController,
@@ -340,12 +340,12 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
           ),
         ),
 
-        // 4. Top Controls
+        
         Positioned(
           top: 50, right: 20,
           child: Column(
             children: [
-              // Switch Camera Button
+             
               GestureDetector(
                 onTap: _switchCamera,
                 child: CircleAvatar(
@@ -358,7 +358,7 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
                 ),
               ),
               const SizedBox(height: 10),
-              // Flash Button (Only visible/enabled for back camera)
+              
               if (!_isFrontCamera)
                 GestureDetector(
                   onTap: _toggleFlash,
@@ -414,7 +414,7 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
     );
   }
 
-  // === VIEW 2: SCANNING ANIMATION ===
+
   Widget _buildScanningView() {
     return Stack(
       fit: StackFit.expand,
@@ -467,7 +467,7 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
     );
   }
 
-  // === VIEW 3: RESULTS (FIXED) ===
+
   Widget _buildResultsView() {
     final insights = _getInsights();
     bool isHighRisk = insights['alert'] == 'high';
@@ -546,7 +546,7 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
             ),
             const SizedBox(height: 20),
 
-            // 2. INSIGHTS CARD (Care)
+            // 2. INSIGHTS CARD 
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
@@ -567,7 +567,7 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
             ),
             const SizedBox(height: 20),
 
-            // 3. DOCTOR ADVICE / ALERT CARD
+            // 3. DOCTOR ADVICE
             Container(
               padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
@@ -590,7 +590,6 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
                       children: [
                         Text("Dermatologist Recommendation", style: GoogleFonts.lato(fontSize: 11, fontWeight: FontWeight.bold, color: Colors.grey[500])),
                         const SizedBox(height: 4),
-                        // Renders the 'doctor' string
                         Text(insights['doctor']!, style: GoogleFonts.lato(fontSize: 15, color: const Color(0xFF2D3A3A))),
                       ],
                     ),
@@ -638,7 +637,7 @@ class _ScanLogicPageState extends State<ScanLogicPage> with TickerProviderStateM
   }
 }
 
-// --- FACE CUTOUT PAINTER (Required Class Definition) ---
+
 class FaceCutoutPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
@@ -649,8 +648,8 @@ class FaceCutoutPainter extends CustomPainter {
     final facePath = Path()
       ..addOval(Rect.fromCenter(
           center: Offset(size.width / 2, size.height / 2),
-          width: 280, // Width of face hole
-          height: 380 // Height of face hole
+          width: 280, 
+          height: 380 
       ));
 
     final path = Path.combine(PathOperation.difference, backgroundPath, facePath);
